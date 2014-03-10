@@ -30,5 +30,4 @@ public class Test {
 		logger.logError(app, classname, padding, string);
 		logger.logError(app, classname, padding, string, destination);
 	}
-
 }
