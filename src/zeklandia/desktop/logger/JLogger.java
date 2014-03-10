@@ -7,8 +7,8 @@ import org.fusesource.jansi.AnsiConsole;
 public class JLogger {
 
 	private static final String app = "JLogger";
-	private static final String classname = "LogOutput";
-	private static final String padding = "        ";
+	private static final String classname = "JLogger";
+	private static final String padding = "             ";
 	private static final String destination = "JLogger.log";
 
 	/**
@@ -16,7 +16,6 @@ public class JLogger {
 	 * is printed to the console
 	 */
 	public static void prepareConsole() {
-		System.out.println("Installing JANSI...");
 		AnsiConsole.systemInstall();
 		logMessage(app, classname, padding, "JANSI loaded");
 	}
@@ -72,7 +71,7 @@ public class JLogger {
 		String padding, String message) {
 		AnsiConsole.system_out.println("\033[1;30m[\033[0;37m" + System.currentTimeMillis() + "\033[1;30m]"
 			+ " \033[1;30m[\033[1;37m" + app + "\033[1;30m]"
-			+ " \033[1;30m[\033[1;32m" + " Msg " + "\033[1;30m]"
+			+ " \033[1;30m[\033[1;32m" + "Info " + "\033[1;30m]"
 			+ " \033[1;30m[\033[0;37m" + classname + "\033[1;30m]"
 			+ padding
 			+ " \033[0;0m" + message + "\033[0;0m");
@@ -93,7 +92,7 @@ public class JLogger {
 		PrintWriter logFile = new PrintWriter(destination);
 		logFile.println("[" + System.currentTimeMillis() + "]"
 			+ " [" + app + "]"
-			+ " [" + " Msg " + "]"
+			+ " [" + "Info " + "]"
 			+ " [" + classname + "]"
 			+ padding
 			+ " " + message);

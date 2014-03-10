@@ -11,7 +11,7 @@ public class Test {
 
 	private static final String app = "JLogger";
 	private static final String classname = "Test";
-	private static final String padding = "    ";
+	private static final String padding = "                ";
 	private static final String destination = "JLogger.log";
 
 	/**
