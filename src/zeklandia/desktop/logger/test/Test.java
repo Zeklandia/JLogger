@@ -9,7 +9,8 @@ import zeklandia.desktop.logger.JLogger;
  */
 public class Test {
 
-	private static final String app = "JLogger";
+	public static final Boolean time = true;
+	public static final String app = "JLogger";
 	private static final String classname = "Test";
 	private static final String padding = "                ";
 	private static final String destination = "JLogger.log";
@@ -23,11 +24,17 @@ public class Test {
 	public static void main(String[] args) throws FileNotFoundException {
 		String string = "Hello world!";
 
-		JLogger logger = new JLogger();
-		logger.prepareConsole();
-		logger.logMessage(app, classname, padding, string);
-		logger.logMessage(app, classname, padding, string, destination);
-		logger.logError(app, classname, padding, string);
-		logger.logError(app, classname, padding, string, destination);
+		//Prepare console
+		JLogger.prepareConsole();
+		
+		//Test messages: time, no time, time/file
+		JLogger.logMessage(time, app, classname, padding, string);
+		JLogger.logMessage(false, app, classname, padding, string);
+		JLogger.logMessage(time, app, classname, padding, string, destination);
+
+		//Test errors: time, no time, time/file
+		JLogger.logError(time, app, classname, padding, string);
+		JLogger.logError(false, app, classname, padding, string);
+		JLogger.logError(time, app, classname, padding, string, destination);
 	}
 }
